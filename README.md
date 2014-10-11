@@ -16,10 +16,25 @@ I'm working with Database-As-A-Service of Openstack, I followed docs at docs.ope
 * [Connect to mysql server using username:password was created.](#connect-mysql)
 
 <a name="based-images"></a>
-## Building images for trove
+##1. Building images for trove
 #### Download based image
 ```
 wget http://cloud-images.ubuntu.com/trusty/current/trusty-server-cloudimg-amd64-disk1.img
 ```
 
 #### Create [local datasource](https://help.ubuntu.com/community/UEC/Images#Ubuntu_Cloud_Guest_images_on_12.04_LTS_.28Precise.29_and_beyond_using_NoCloud) for instace's cloud-init
+```
+$ cat > my-user-data <<EOF
+#cloud-config
+password: 'passw0rd'
+chpasswd: { expire: False }
+ssh_pwauth: True
+EOF
+
+$ cloud-localds my-seed.img my-user-data
+```
+
+# Using virt-manager and libvirtd to create new virtual machine using trusty-server-cloudimg-amd64-disk1.img and my-seed.img as secondary hard disk (This is something beyond this article ^^)
+# After instance boot successfully, login to that virtual machine with 'ubuntu:passw0rd' as username and password 
+
+
