@@ -66,3 +66,38 @@ root_grant_option = True
 ignore_users = os_admin
 ignore_dbs = lost+found, mysql, information_schema
 ```
+
+**Fix package permission**
+```
+$(guest)$ sudo chmod 755 /var/log/trove
+```
+
+**Enable sudo permission for 'trove'**
+```
+(guest)$ sudo visudo
+	trove ALL = (ALL) NOPASSWD: ALL
+```
+
+**Poweroff Virtual Machine**
+```
+sudo init 0
+```
+
+<a name="sysprep"></a>
+#### Preparing images for Openstack
+**Remove 'hardware' information**
+```
+virt-sysprep -a trusty-server-cloudimg-amd64-disk1.img
+```
+
+**Compress QCOW image**
+```
+qemu-img convert -f qcow2 -O qcow2 -c trusty-server-cloudimg-amd64-disk1.img trusty-server-cloudimg-amd64-trove-mysql.qcow2
+```
+<a name="upload-to-glance"></a>
+#### Upload image to Glance
+```
+glance --os-username admin --os-password $ADMIN_PASSWORD --os-tenant-name admin \
+--os-auth-url http://$KEYSTONE_SERVER:35357/v2.0 \
+image-create --name trusty-server-cloudimg-amd64-trove-mysql --public --disk-format qcow2 --owner admin < trusty-server-cloudimg-amd64-trove-mysql.qcow2
+```
