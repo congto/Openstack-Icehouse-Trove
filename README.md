@@ -17,6 +17,7 @@ I'm working with Database-As-A-Service of Openstack, I followed docs at docs.ope
 
 <a name="based-images"></a>
 ## Building images for trove
+### Download based image
 ```
 wget http://cloud-images.ubuntu.com/trusty/current/trusty-server-cloudimg-amd64-disk1.img
 ```
