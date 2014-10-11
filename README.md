@@ -2,18 +2,18 @@ I'm working with Database-As-A-Service of Openstack, I followed docs at docs.ope
 
 1. Building images for trove
 	- [Download based images] (#based-images)
-	- Install and configure trove-guestagent to communicate with trove-taskmanager and message queued
-	- Sysprep and compress images
-	- Upload to glance
+	- [Install and configure trove-guestagent to communicate with trove-taskmanager and message queued](#trove-guestagent)
+	- [Sysprep and compress images](#sysprep)
+	- [Upload to glance](#upload-to-glance)
 	
 2. Installing and configuring Openstack Databases Service
-	- Install and configure necessary packages
-	- Update database store for Trove
+	- [Install and configure necessary packages] (#guest-pkgs)
+	- [Update database store for Trove] (#trove-datastore)
 
 3. Verifying
-	- Create trove instance
-	- Create mysql user/database
-	- Connect to mysql server using username:password was created.
+	- [Create trove instance](#create-trove-instance)
+	- [Create mysql user/database](#create-mysql-user-db)
+	- [Connect to mysql server using username:password was created.](#connect-mysql)
 
 <a name="based-images"></a>
 
