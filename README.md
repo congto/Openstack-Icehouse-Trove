@@ -35,7 +35,7 @@ $ cloud-localds my-seed.img my-user-data
 ```
 
 #### Boot to downloaded image
-*Using virt-manager and libvirtd to create new virtual machine using trusty-server-cloudimg-amd64-disk1.img and my-seed.img as secondary hard disk (This is something beyond this article). After instance boot successfully, login to that virtual machine with* '**ubuntu:passw0rd**' *as username and password*
+*Using virt-manager and libvirtd to create new virtual machine using* **trusty-server-cloudimg-amd64-disk1.img** *and* **my-seed.img** *as secondary hard disk (This is something beyond this article). After instance boot successfully, login to that virtual machine with* '**ubuntu:passw0rd**' *as username and password*
 
 <a name="trove-guestagent"></a>
 #### Install trove-guestagent 
@@ -132,7 +132,7 @@ use_syslog = False
 debug = False
 verbose = True
 default_datastore = mysql
-sql_connection = mysql://trove:123@$MYSQL_SERVER/trove?charset=utf8
+sql_connection = mysql://trove:$TROVE_DBPASS@$MYSQL_SERVER/trove?charset=utf8
 rabbit_password = $RABBITMQ-PASSWORD
 api_extensions_path = /usr/lib/python2.6/site-packages/trove/extensions/routes
 add_addresses = True
@@ -148,7 +148,7 @@ trove_auth_url = http://$KEYSTONE_SERVER:35357/v2.0
 nova_proxy_admin_pass = $ADMIN_PASSWORD
 nova_proxy_admin_tenant_name = admin
 nova_proxy_admin_user = admin
-sql_connection = mysql://trove:123@$MYSQL_SERVER/trove?charset=utf8
+sql_connection = mysql://trove:$TROVE_DBPASS@$MYSQL_SERVER/trove?charset=utf8
 taskmanager_manager = trove.taskmanager.manager.Manager
 rabbit_password = $RABBITMQ-PASSWORD
 ```
@@ -163,7 +163,7 @@ trove_auth_url = http://$KEYSTONE_SERVER:35357/v2.0
 nova_proxy_admin_pass = $ADMIN_PASSWORD
 nova_proxy_admin_tenant_name = admin
 nova_proxy_admin_user = admin
-sql_connection = mysql://trove:123@$MYSQL_SERVER/trove?charset=utf8
+sql_connection = mysql://trove:$TROVE_DBPASS@$MYSQL_SERVER/trove?charset=utf8
 rabbit_password = $RABBITMQ-PASSWORD
 ```
 
@@ -248,7 +248,7 @@ trove list
 | a45c2824-9764-4f81-ad79-1567e31f0cf0 | trove-mysql-instance-1 |   mysql   |     mysql-5.5     | BUILD  |     2     |  2   |
 +--------------------------------------+------------------------+-----------+-------------------+--------+-----------+------+
 
-# Waiting for a couble of minutes for creating and install pkgs
+# Waiting for a couple of minutes for creating and install pkgs
 trove list
 +--------------------------------------+------------------------+-----------+-------------------+--------+-----------+------+
 |                  id                  |          name          | datastore | datastore_version | status | flavor_id | size |
@@ -298,5 +298,5 @@ trove user-list a45c2824-9764-4f81-ad79-1567e31f0cf0
 mysql -h 10.10.80.87 -u demo-user -p'passw0rd' demo-db
 ```
 
-#CONCLUSION
+#Conclusion
 At the time I write this article, Trove support so well for mysql. You can create/delete user/database and you can grant privileges for user. Another datastore as cassandra/mongodb you have very little options to choose, you can only create Trove instance for cassandra/mongodb . I hope Trove dev team will release more and more funny options in the feature. I am thankful for all your works done for Opensource World, I hope I will be a part of Opensource developer community in some day instead of just using your softwares. 
