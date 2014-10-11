@@ -35,8 +35,6 @@ $ cloud-localds my-seed.img my-user-data
 ```
 
 #### Boot to downloaded image
-```
-Using virt-manager and libvirtd to create new virtual machine using trusty-server-cloudimg-amd64-disk1.img and my-seed.img as secondary hard disk (This is something beyond this article ^^). 
-After instance boot successfully, login to that virtual machine with 'ubuntu:passw0rd' as username and password 
-```
+*Using virt-manager and libvirtd to create new virtual machine using trusty-server-cloudimg-amd64-disk1.img and my-seed.img as secondary hard disk (This is something beyond this article ^^). 
+After instance boot successfully, login to that virtual machine with 'ubuntu:passw0rd' as username and password *
 
