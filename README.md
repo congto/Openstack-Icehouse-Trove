@@ -16,7 +16,7 @@ I'm working with Database-As-A-Service of Openstack, I followed docs at docs.ope
 * [Connect to mysql server using username:password was created.](#connect-mysql)
 
 <a name="based-images"></a>
-##1. Building images for trove
+##1. Building images for Trove
 #### Download based image
 ```
 wget http://cloud-images.ubuntu.com/trusty/current/trusty-server-cloudimg-amd64-disk1.img
@@ -72,7 +72,7 @@ ignore_dbs = lost+found, mysql, information_schema
 $(guest)$ sudo chmod 755 /var/log/trove
 ```
 
-**Enable sudo permission for 'trove'**
+**Enable sudo permission for 'trove' user**
 ```
 (guest)$ sudo visudo
 	trove ALL = (ALL) NOPASSWD: ALL
@@ -136,7 +136,7 @@ sql_connection = mysql://trove:$TROVE_DBPASS@$MYSQL_SERVER/trove?charset=utf8
 rabbit_password = $RABBITMQ-PASSWORD
 api_extensions_path = /usr/lib/python2.6/site-packages/trove/extensions/routes
 add_addresses = True
-network_label_regex = ^GATEWAY	# My External network for VMs are: GATEWAY_NET
+network_label_regex = ^GATEWAY	# My External network for VMs is: GATEWAY_NET
 ```
 
 **/etc/trove/trove-taskmanager.conf**
