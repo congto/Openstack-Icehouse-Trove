@@ -42,5 +42,26 @@ $ cloud-localds my-seed.img my-user-data
 ```
 (guest)$ sudo apt-get install rsync trove-guestagent -y
 (guest)$ sudo vi /etc/init/trove-guestagent.conf
-	*--exec /usr/bin/trove-guestagent -- --config-file=/etc/guest_info --config-file=/etc/trove/trove-guestagent.conf --log-dir=/var/log/trove --logfile=guestagent.log*
+	--exec /usr/bin/trove-guestagent -- --config-file=/etc/guest_info --config-file=/etc/trove/trove-guestagent.conf --log-dir=/var/log/trove --logfile=guestagent.log
+```
+
+(guest)$ sudo vi /etc/trove/trove-guestagent.conf
+```
+[DEFAULT]
+rabbit_host = $RABBITMQ-SERVER
+rabbit_password = $RABBITMQ-PASSWORD
+rabbit_userid = guest
+verbose = True
+debug = False
+bind_port = 8778
+bind_host = 0.0.0.0
+nova_proxy_admin_user = admin
+nova_proxy_admin_pass = $ADMIN_PASSWORD
+nova_proxy_admin_tenant_name = admin
+trove_auth_url = http://$KEYSTONE_SERVER:35357/v2.0
+control_exchange = trove
+root_grant = ALL
+root_grant_option = True
+ignore_users = os_admin
+ignore_dbs = lost+found, mysql, information_schema
 ```
