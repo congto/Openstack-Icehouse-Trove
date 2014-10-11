@@ -16,7 +16,7 @@ I'm working with Database-As-A-Service of Openstack, I followed docs at docs.ope
 * [Connect to mysql server using username:password was created.](#connect-mysql)
 
 <a name="based-images"></a>
-##Building images for trove
+##1. Building images for trove
 #### Download based image
 ```
 wget http://cloud-images.ubuntu.com/trusty/current/trusty-server-cloudimg-amd64-disk1.img
@@ -38,9 +38,9 @@ $ cloud-localds my-seed.img my-user-data
 *Using virt-manager and libvirtd to create new virtual machine using trusty-server-cloudimg-amd64-disk1.img and my-seed.img as secondary hard disk (This is something beyond this article). After instance boot successfully, login to that virtual machine with* '**ubuntu:passw0rd**' *as username and password*
 
 <a name="trove-guestagent"></a>
-## Install trove-guestagent 
+#### Install trove-guestagent 
 ```
 (guest)$ sudo apt-get install rsync trove-guestagent -y
-sudo vi /etc/init/trove-guestagent.conf
-	--exec /usr/bin/trove-guestagent -- --config-file=/etc/guest_info --config-file=/etc/trove/trove-guestagent.conf --log-dir=/var/log/trove --logfile=guestagent.log
+(guest)$ sudo vi /etc/init/trove-guestagent.conf
+	*--exec /usr/bin/trove-guestagent -- --config-file=/etc/guest_info --config-file=/etc/trove/trove-guestagent.conf --log-dir=/var/log/trove --logfile=guestagent.log*
 ```
