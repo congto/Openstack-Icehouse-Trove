@@ -17,7 +17,9 @@ I'm working with Database-As-A-Service of Openstack, I followed docs at docs.ope
 
 <a name="based-images"></a>
 ## Building images for trove
-### Download based image
+#### Download based image
 ```
 wget http://cloud-images.ubuntu.com/trusty/current/trusty-server-cloudimg-amd64-disk1.img
 ```
+
+#### Create [local datasource](https://help.ubuntu.com/community/UEC/Images#Ubuntu_Cloud_Guest_images_on_12.04_LTS_.28Precise.29_and_beyond_using_NoCloud) for instace's cloud-init
