@@ -45,7 +45,8 @@ $ cloud-localds my-seed.img my-user-data
 	--exec /usr/bin/trove-guestagent -- --config-file=/etc/guest_info --config-file=/etc/trove/trove-guestagent.conf --log-dir=/var/log/trove --logfile=guestagent.log
 ```
 
-**(guest)$ sudo vi /etc/trove/trove-guestagent.conf**
+*(guest)$* **sudo vi /etc/trove/trove-guestagent.conf**
+
 ```
 [DEFAULT]
 rabbit_host = $RABBITMQ-SERVER
